@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Campus Lost & Found</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="mark">⌕</span> Campus<span>Find</span></a>
+<nav><a href="#browse">Browse items</a><a href="#report">Report item</a><button id="authButton" class="btn ghost">Sign in</button></nav></header>
+<main>
+<section class="hero"><div><p class="eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</p><h1>Lost something?<br><em>Let’s find it.</em></h1><p class="lead">A simple, campus-wide place to reunite people with the things they’ve misplaced.</p><div class="hero-actions"><a class="btn" href="#report">Report an item</a><a class="btn ghost" href="#browse">Search listings</a></div></div>
+<div class="hero-art"><div class="orbit"></div><div class="found-card"><span class="tag">RECENTLY FOUND</span><div class="item-icon">🎒</div><h3>Blue backpack</h3><p>Library · Yesterday</p><span class="status">Waiting for owner</span></div><div class="mini-note">✨ Every item has a way home</div></div></section>
+<section class="stats"><div><strong id="totalCount">—</strong><span>Active listings</span></div><div><strong>2</strong><span>Ways to report</span></div><div><strong>1</strong><span>Campus community</span></div></section>
+<section id="browse" class="section"><div class="section-head"><div><p class="eyebrow">THE COMMUNITY BOARD</p><h2>Find what’s missing</h2></div><p>Search reports and filter by item type.</p></div>
+<div class="filters"><input id="searchInput" placeholder="Search name, details, or location…" aria-label="Search items"><select id="typeFilter"><option value="">All reports</option><option value="lost">Lost</option><option value="found">Found</option></select><select id="categoryFilter"><option value="">All categories</option><option>Electronics</option><option>Books & Notes</option><option>Clothing</option><option>Accessories</option><option>Keys & Cards</option><option>Other</option></select></div>
+<div id="itemsGrid" class="items-grid"><p class="muted">Loading listings…</p></div></section>
+<section id="report" class="section report-section"><div><p class="eyebrow">HELP SOMETHING GET HOME</p><h2>Report a lost or found item</h2><p class="lead">Share a few details. Please avoid posting sensitive information such as student ID numbers.</p><div class="tip">🔒 Sign in to submit a report and manage your listings.</div></div>
+<form id="reportForm" class="panel"><label>Report type<select name="type" required><option value="lost">I lost something</option><option value="found">I found something</option></select></label>
+<label>Item name<input name="title" required maxlength="90" placeholder="e.g. Black water bottle"></label>
+<label>Category<select name="category" required><option>Electronics</option><option>Books & Notes</option><option>Clothing</option><option>Accessories</option><option>Keys & Cards</option><option>Other</option></select></label>
+<label>Location<input name="location" required maxlength="120" placeholder="e.g. Engineering block, room 204"></label>
+<label>Date <input name="item_date" type="date" required></label>
+<label>Description<textarea name="description" rows="3" maxlength="1000" placeholder="Color, brand, identifying details…"></textarea></label>
+<label>Contact details<input name="contact" required maxlength="160" placeholder="College email or safe contact method"></label>
+<button class="btn" type="submit">Submit report</button><p id="reportMessage" class="form-message" role="status"></p></form></section>
+</main><footer><span>CampusFind · College Lost & Found</span><span>Built for a safer, more connected campus.</span></footer>
+<dialog id="authDialog"><form id="authForm" class="dialog-form"><button type="button" id="closeAuth" class="close" aria-label="Close">×</button><p class="eyebrow">WELCOME TO CAMPUSFIND</p><h2 id="authTitle">Sign in</h2><div class="switch"><button type="button" id="showSignin" class="selected">Sign in</button><button type="button" id="showSignup">Create account</button></div><label>Email<input type="email" name="email" required autocomplete="email"></label><label>Password<input type="password" name="password" required minlength="8" autocomplete="current-password"></label><label id="nameLabel" hidden>Full name<input name="full_name" maxlength="100" autocomplete="name"></label><button class="btn" type="submit" id="authSubmit">Sign in</button><p id="authMessage" class="form-message" role="status"></p><button type="button" id="signoutButton" class="btn ghost" hidden>Sign out</button></form></dialog>
+<script src="app.js"></script></body></html>
